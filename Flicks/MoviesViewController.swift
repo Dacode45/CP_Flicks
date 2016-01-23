@@ -52,16 +52,12 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func hideNetworkError(){
         errorView.hidden = true
+        if let timer = timer{
+            timer.invalidate()
+        }
         println("NetworkError hidden")
     }
-    func toggleNetworkError(){
-        if let timer = timer{
-           timer.invalidate()
-        }
-        showNetworkError()
-        timer = NSTimer.scheduledTimerWithTimeInterval(3, target:self, selector: Selector("hideNetworkError"), userInfo:nil, repeats: false)
-        
-    }
+    
     
     func getMovies(){
     
@@ -91,7 +87,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                     }
                     
                     if error != nil{
-                        self.toggleNetworkError()
+                        self.showNetworkError()
                         MBProgressHUD.hideHUDForView(self.view, animated: true)
                     }
                 }
@@ -127,7 +123,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                     }
                     
                     if error != nil{
-                        self.toggleNetworkError()
+                        self.showNetworkError()
                         self.refreshControl.endRefreshing()
                     }
                 }
@@ -191,6 +187,10 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
             movies?.filter({(movie:NSDictionary)->Bool in
                 return (movie["title"] as! String).rangeOfString(searchText, options:.CaseInsensitiveSearch) != nil})
         collectionView.reloadData()
+    }
+    @IBAction func errorButtonPush(sender: AnyObject) {
+        hideNetworkError()
+        getMovies()
     }
     /*
     // MARK: - Navigation
