@@ -151,33 +151,35 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let movie = filteredMovies![indexPath.row]
         let title: String = movie["title"] as! String
         let overview: String = movie["overview"] as! String
-        let posterPath: String = movie["poster_path"] as! String
-        
-        let baseImageURL = "http://image.tmdb.org/t/p/w500"
-        let imageURL = NSURL(string: baseImageURL+posterPath)
-        let imageRequest = NSURLRequest(URL: imageURL!)
-        
-        cell.movieImage.setImageWithURLRequest(
-            imageRequest,
-            placeholderImage: nil,
-            success:{(imageRequest, imageResponse, image)-> Void in
-                //response nil if image cached
-                if imageResponse != nil{
-                    println("image was not cached, fade in image")
-                    cell.movieImage.alpha = 0.0
-                    cell.movieImage.image = image
-                    UIView.animateWithDuration(0.3, animations:{() -> Void in
-                        cell.movieImage.alpha = 1.0
-                    })
-                }else{
-                    print("Image was cached update image")
-                    cell.movieImage.image = image
+        if let posterPath: String = movie["poster_path"] as? String{
+            let baseImageURL = "http://image.tmdb.org/t/p/w500"
+            let imageURL = NSURL(string: baseImageURL+posterPath)
+            let imageRequest = NSURLRequest(URL: imageURL!)
+            
+            cell.movieImage.setImageWithURLRequest(
+                imageRequest,
+                placeholderImage: nil,
+                success:{(imageRequest, imageResponse, image)-> Void in
+                    //response nil if image cached
+                    if imageResponse != nil{
+                        println("image was not cached, fade in image")
+                        cell.movieImage.alpha = 0.0
+                        cell.movieImage.image = image
+                        UIView.animateWithDuration(0.3, animations:{() -> Void in
+                            cell.movieImage.alpha = 1.0
+                        })
+                    }else{
+                        print("Image was cached update image")
+                        cell.movieImage.image = image
+                    }
+                },
+                failure:{(imageRequest, imageResponse, error)-> Void in
+                    println("failed to load image")
                 }
-            },
-            failure:{(imageRequest, imageResponse, error)-> Void in
-                println("failed to load image")
-            }
-        )
+            )
+
+        }
+        
         
         return cell
     }
@@ -195,12 +197,17 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard- based application, you will often want to do a little preparation before navigation
+*/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = sender as! MovieCollectionCell
+        let indexPath = collectionView.indexPathForCell(cell)
+        let movie = movies![indexPath!.row]
+        
+        let detailViewController = segue.destinationViewController as! DetailsViewController
+        detailViewController.movie = movie
     }
-    */
+
 
 }
 
