@@ -41,7 +41,7 @@ class DetailsViewController: UIViewController {
                 success:{(imageRequest, imageResponse, image)-> Void in
                     //response nil if image cached
                     if imageResponse != nil{
-                        println("image was not cached, fade in image")
+                        print("image was not cached, fade in image")
                         self.movieImage.alpha = 0.0
                         self.movieImage.image = image
                         UIView.animateWithDuration(0.3, animations:{() -> Void in
@@ -53,7 +53,7 @@ class DetailsViewController: UIViewController {
                     }
                 },
                 failure:{(imageRequest, imageResponse, error)-> Void in
-                    println("failed to load image")
+                    print("failed to load image")
                 }
             )
             
@@ -61,6 +61,9 @@ class DetailsViewController: UIViewController {
 
     }
 
+    @IBAction func detailTap(sender: UITapGestureRecognizer) {
+        self.performSegueWithIdentifier("fullScreenSeque", sender:self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,10 +75,13 @@ class DetailsViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
+     
+        let destinationViewController = segue.destinationViewController as! FullScreenPhotoViewController
+        destinationViewController.image = self.movieImage.image
+              // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

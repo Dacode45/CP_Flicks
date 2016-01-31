@@ -1,22 +1,20 @@
 //
-//  MoviesViewController.swift
+//  PopularViewController.swift
 //  Flicks
 //
-//  Created by Labuser on 1/21/16.
-//  Copyright (c) 2016 David Ayeke. All rights reserved.
+//  Created by Labuser on 1/31/16.
+//  Copyright © 2016 David Ayeke. All rights reserved.
 //
 
 import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate{
+class PopularViewController:  UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate{
     
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     var movies: [NSDictionary]?
     var filteredMovies: [NSDictionary]?
     var refreshControl:UIRefreshControl!
@@ -62,7 +60,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func getMovies(){
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -96,7 +94,12 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func getNowPlayingMovies(completionHandler:(NSData?, NSURLResponse?, NSError?)->Void){
-        getMovies("https://api.themoviedb.org/3/movie/now_playing", completionHandler: completionHandler)
+        getMovies("https://api.themoviedb.org/3/movie/top_rated?", completionHandler: completionHandler)
+    }
+    
+    func getPopularMovies(completionHandler:(NSData?, NSURLResponse?, NSError?)->Void){
+        getMovies("https://api.themoviedb.org/3/movie/top_rated?", completionHandler: completionHandler)
+        
     }
     
     func getMovies(url: String, completionHandler:(NSData?, NSURLResponse?, NSError?)->Void){
@@ -115,7 +118,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func refresh(){
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -227,4 +230,3 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     
 }
-

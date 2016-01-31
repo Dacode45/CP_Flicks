@@ -12,6 +12,10 @@
 		68004D5D1C52B8E7001A73FE /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68004D5C1C52B8E7001A73FE /* MBProgressHUD.framework */; };
 		68004D611C5416A0001A73FE /* MovieCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68004D601C5416A0001A73FE /* MovieCollectionCell.swift */; };
 		685504B91C5861DA00F930A5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685504B81C5861DA00F930A5 /* DetailsViewController.swift */; };
+		688EF6A81C5E9E8200B00477 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688EF6A71C5E9E8200B00477 /* NowPlayingViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		688EF6AE1C5EA4E500B00477 /* iconmonstr-folder-21-240.png in Resources */ = {isa = PBXBuildFile; fileRef = 688EF6AD1C5EA4E500B00477 /* iconmonstr-folder-21-240.png */; settings = {ASSET_TAGS = (); }; };
+		688EF6B01C5EA73D00B00477 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688EF6AF1C5EA73D00B00477 /* PopularViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		688EF6B21C5EA99000B00477 /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688EF6B11C5EA99000B00477 /* FullScreenPhotoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		68D728AF1C5179C000A9FD35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D728AE1C5179C000A9FD35 /* AppDelegate.swift */; };
 		68D728B41C5179C000A9FD35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D728B21C5179C000A9FD35 /* Main.storyboard */; };
 		68D728B61C5179C000A9FD35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68D728B51C5179C000A9FD35 /* Images.xcassets */; };
@@ -178,6 +182,10 @@
 		685505521C5864D700F930A5 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		685505531C5864D700F930A5 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		685505541C5864D700F930A5 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		688EF6A71C5E9E8200B00477 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		688EF6AD1C5EA4E500B00477 /* iconmonstr-folder-21-240.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-folder-21-240.png"; sourceTree = "<group>"; };
+		688EF6AF1C5EA73D00B00477 /* PopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		688EF6B11C5EA99000B00477 /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
 		68D728A91C5179C000A9FD35 /* Flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D728AD1C5179C000A9FD35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68D728AE1C5179C000A9FD35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -502,6 +510,14 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		688EF6AC1C5EA4C900B00477 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				688EF6AD1C5EA4E500B00477 /* iconmonstr-folder-21-240.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		68D728A01C5179C000A9FD35 = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +540,7 @@
 		68D728AB1C5179C000A9FD35 /* Flicks */ = {
 			isa = PBXGroup;
 			children = (
+				688EF6AC1C5EA4C900B00477 /* Images */,
 				68D728D31C5188FF00A9FD35 /* View Controllers */,
 				68D728D01C5188CA00A9FD35 /* Views */,
 				68D728AE1C5179C000A9FD35 /* AppDelegate.swift */,
@@ -574,6 +591,9 @@
 			children = (
 				68D728CE1C517B3800A9FD35 /* MoviesViewController.swift */,
 				685504B81C5861DA00F930A5 /* DetailsViewController.swift */,
+				688EF6A71C5E9E8200B00477 /* NowPlayingViewController.swift */,
+				688EF6AF1C5EA73D00B00477 /* PopularViewController.swift */,
+				688EF6B11C5EA99000B00477 /* FullScreenPhotoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -607,6 +627,7 @@
 		68D728A11C5179C000A9FD35 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "David Ayeke";
 				TargetAttributes = {
@@ -671,6 +692,7 @@
 				68D728B41C5179C000A9FD35 /* Main.storyboard in Resources */,
 				68D728B91C5179C000A9FD35 /* LaunchScreen.xib in Resources */,
 				68D728B61C5179C000A9FD35 /* Images.xcassets in Resources */,
+				688EF6AE1C5EA4E500B00477 /* iconmonstr-folder-21-240.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,8 +753,11 @@
 			files = (
 				68004D611C5416A0001A73FE /* MovieCollectionCell.swift in Sources */,
 				68D728AF1C5179C000A9FD35 /* AppDelegate.swift in Sources */,
+				688EF6B21C5EA99000B00477 /* FullScreenPhotoViewController.swift in Sources */,
 				68D728CF1C517B3800A9FD35 /* MoviesViewController.swift in Sources */,
 				68D728D21C5188E800A9FD35 /* MovieCell.swift in Sources */,
+				688EF6B01C5EA73D00B00477 /* PopularViewController.swift in Sources */,
+				688EF6A81C5E9E8200B00477 /* NowPlayingViewController.swift in Sources */,
 				685504B91C5861DA00F930A5 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

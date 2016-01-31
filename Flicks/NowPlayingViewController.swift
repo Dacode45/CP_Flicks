@@ -1,22 +1,20 @@
 //
-//  MoviesViewController.swift
+//  NowPlayingViewController.swift
 //  Flicks
 //
-//  Created by Labuser on 1/21/16.
-//  Copyright (c) 2016 David Ayeke. All rights reserved.
+//  Created by Labuser on 1/31/16.
+//  Copyright © 2016 David Ayeke. All rights reserved.
 //
 
 import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate{
+class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate{
     
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     var movies: [NSDictionary]?
     var filteredMovies: [NSDictionary]?
     var refreshControl:UIRefreshControl!
@@ -227,4 +225,3 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     
 }
-
